@@ -9,26 +9,27 @@
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
-    "@react-navigation/native": "^5.5.1",
-    "@react-navigation/stack": "^5.2.16",
-    "expo": "~38.0.8",
+    "@react-navigation/native": "^5.7.3",
+    "@react-navigation/stack": "^5.9.0",
+    "expo": "^38.0.0",
     "expo-linking": "^1.0.3",
-    "expo-status-bar": "^1.0.2",
-    "firebase": "^7.17.2",
-    "react": "~16.11.0",
+    "expo-status-bar": "^1.0.0",
+    "firebase": "7.9.0",
+    "react": "16.11.0",
     "react-dom": "16.11.0",
-    "react-native": "^0.63.2",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
     "react-native-exception-handler": "^2.10.8",
     "react-native-gesture-handler": "~1.6.0",
     "react-native-gifted-chat": "^0.16.3",
-    "react-native-paper": "^3.10.1",
+    "react-native-paper": "^4.0.1",
     "react-native-responsive-screen": "^1.4.1",
     "react-native-screens": "~2.9.0",
+    "react-native-svg-uri": "^1.2.3",
     "react-native-web": "~0.11.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.6",
-    "babel-preset-expo": "~8.1.0"
+    "@babel/core": "^7.11.1",
+    "babel-preset-expo": "^8.2.3"
   },
   "private": true
 }

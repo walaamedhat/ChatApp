@@ -1,8 +1,17 @@
 import React from 'react';
-import { GiftedChat } from 'react-native-gifted-chat';
+import { GiftedChat, Avatar, Message } from 'react-native-gifted-chat';
 import { Button } from 'react-native-paper';
 
 import Fire from '../Fire';
+
+// class CustomMessage extends Message {
+//     renderAvatar() {
+//         console.log(this, 'thisss')
+//         return (
+//             <Avatar {...this.props.user.avatar}/>
+//         );
+//     }
+// }
 
 class Chat extends React.Component {
 
@@ -27,6 +36,7 @@ class Chat extends React.Component {
     componentWillUnmount() {
         Fire.shared.off();
     }
+
     render() {
         console.log(this.props.route.params,'this.props.navigation.params.name')
         // console.log(this.props.navigation,'this.props.navigation')
@@ -34,16 +44,23 @@ class Chat extends React.Component {
             <GiftedChat
                 messages={this.state.messages}
                 onSend={Fire.shared.send}
-                // user={this.user}
                 user={{
-                    name: this.props.route.params,
+                    name: this.props.route.params.name,
                     _id: Fire.shared.uid,
                 }}
-                renderAvatar={() => null}
+                // renderMessage={props => <CustomMessage {...props} />}
+                // renderAvatar={this.renderAvatar}
                 // showAvatarForEveryMessage={true}
                 showUserAvatar={true}
                 showAvatarForEveryMessage={true}
-                renderAvatarOnTop={true}
+                // renderAvatarOnTop={true}
+                // renderAvatar={(props) => {
+                //     return (
+                //         <Avatar
+                //             {...props}
+                //         />
+                //     )
+                // }}
             />
         );
     }
