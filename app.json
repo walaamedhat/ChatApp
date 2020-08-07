@@ -4,11 +4,11 @@
     "slug": "chat-project",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/AppIcons/appstore.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashIcon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#29374a"
     },
     "scheme": "chat-app",
     "updates": {

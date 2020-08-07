@@ -16,7 +16,7 @@ console.disableYellowBox = true
 
 function Main() {
     return (
-        <NavigationContainer linking={LinkingConfiguration}>
+        <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen
                     name="Login"

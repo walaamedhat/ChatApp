@@ -8,12 +8,14 @@ class Fire {
 
     init = () =>
         firebase.initializeApp({
-            apiKey: 'AIzaSyDLgW8QG1qO8O5WZLC1U8WaqCr5-CvEVmo',
-            authDomain: 'chatter-b85d7.firebaseapp.com',
-            databaseURL: 'https://chatter-b85d7.firebaseio.com',
-            projectId: 'chatter-b85d7',
-            storageBucket: '',
-            messagingSenderId: '861166145757',
+            apiKey: "AIzaSyBVW1iRlY5OScTeIj3Z6ZesFJrRpy-uTss",
+            authDomain: "chat-d64a1.firebaseapp.com",
+            databaseURL: "https://chat-d64a1.firebaseio.com",
+            projectId: "chat-d64a1",
+            storageBucket: "chat-d64a1.appspot.com",
+            messagingSenderId: "1067935617601",
+            appId: "1:1067935617601:web:dcd262af3561bfe7146cc0",
+            measurementId: "G-N1C5WGC49D"
         });
 
     observeAuth = () =>
@@ -30,6 +32,7 @@ class Fire {
     };
 
     get uid() {
+        console.log(firebase.auth().currentUser,'firebase.auth().currentUser')
         return (firebase.auth().currentUser || {}).uid;
     }
 
@@ -60,6 +63,7 @@ class Fire {
     }
     // send the message to the Backend
     send = messages => {
+        console.log(messages,'messages')
         for (let i = 0; i < messages.length; i++) {
             const { text, user } = messages[i];
             const message = {

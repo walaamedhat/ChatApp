@@ -1,25 +1,56 @@
-// import Amplify from 'aws-amplify';
-import * as React from 'react';
-import {  StatusBar, View, Text } from 'react-native';
-// import { Provider as StoreProvider } from 'react-redux';
+import React, { useState, useEffect, useRef } from 'react';
+// Import React Navigation
+import { createStackNavigator } from '@react-navigation/stack'
+import { NavigationContainer } from '@react-navigation/native';
+import { setJSExceptionHandler, setNativeExceptionHandler } from 'react-native-exception-handler';
 
-// import AWSConfig from './aws-exports';
-import Main from './navigation';
-import useCachedResources from './shared/hooks/useCachedResources';
-// import store from './shared/stores';
-// Amplify.configure(AWSConfig);
+//Import Configuration
+// import LinkingConfiguration from './LinkingConfiguration';
 
-export default function App(props) {
-  const isLoadingComplete = useCachedResources();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-  if (!isLoadingComplete) {
-    return <View style={{backgroundColor: 'res'}}><Text>Yes</Text></View>;
-  } else {
-    return (
-      <View>
-        <StatusBar barStyle="light-content" />
-        <Main />
-      </View>
-    );
-  }
+// Import the screens
+import Chat from './screens/Chat';
+import Login from './screens/Login';
+
+// Create the navigator
+const Stack = createStackNavigator();
+console.disableYellowBox = true
+const handleError = (error, isFatal) => {
+    // fetch
+    console.log(error, isFatal);
+    // alert(error.name);
+};
+
+setJSExceptionHandler((error, isFatal) => {
+    console.log('caught global error');
+    handleError(error, isFatal);
+}, true);
+
+setNativeExceptionHandler(errorString => {
+    // do the things
+    console.log(errorString)
+});
+function App() {
+  return (
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{
+                  title: 'My home',
+                  headerStyle: {
+                      backgroundColor: '#29374a',
+                  },
+              }}
+          />
+          <Stack.Screen
+              name="Chat"
+              component={Chat}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+  );
 }
+
+// Export it as the root component
+export default App
