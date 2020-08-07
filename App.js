@@ -22,13 +22,14 @@ const handleError = (error, isFatal) => {
 
 setJSExceptionHandler((error, isFatal) => {
     console.log('caught global error');
+    console.log(error)
     handleError(error, isFatal);
 }, true);
-
-setNativeExceptionHandler(errorString => {
-    // do the things
-    console.log(errorString)
-});
+//
+// setNativeExceptionHandler(errorString => {
+//     // do the things
+//     console.log(errorString)
+// });
 function App() {
   return (
       <NavigationContainer>

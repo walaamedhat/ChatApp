@@ -10,6 +10,23 @@ class Chat extends React.Component {
         messages: [],
         user:{_id:1, name: 'test'}
     };
+    componentDidMount() {
+        this.props.navigation.setOptions({
+            headerLeft: () => (
+                <Button icon="logout" mode="Text button" color='#77b3d4' onPress={() => this.props.navigation.navigate('Login')}>
+                    Logout
+                </Button>
+            ),
+        });
+        Fire.shared.on(message =>
+            this.setState(previousState => ({
+                messages: GiftedChat.append(previousState.messages, message),
+            }))
+        );
+    }
+    componentWillUnmount() {
+        Fire.shared.off();
+    }
     render() {
         console.log(this.props.route.params,'this.props.navigation.params.name')
         // console.log(this.props.navigation,'this.props.navigation')
@@ -30,59 +47,12 @@ class Chat extends React.Component {
             />
         );
     }
-
-    componentDidMount() {
-        this.props.navigation.setOptions({
-            headerLeft: () => (
-                // <Button
-                //     onPress={() => this.props.navigation.navigate('Login')}
-                //     title="Logout"
-                //     color="red"
-                // />
-                <Button icon="logout" mode="Text button" color='#77b3d4' onPress={() => this.props.navigation.navigate('Login')}>
-                    Logout
-                </Button>
-            ),
-        });
-        Fire.shared.on(message =>
-            this.setState(previousState => ({
-                messages: GiftedChat.append(previousState.messages, message),
-            }))
-        );
-    }
-    componentWillUnmount() {
-        Fire.shared.off();
-    }
 }
 
 export default Chat;
 
 
 
-
-
-// // import React, { useEffect, useState } from 'react';
-// // import { View, StyleSheet, Text } from 'react-native';
-// // import { GiftedChat } from 'react-native-gifted-chat';
-// //
-// // export default function Chat() {
-// //     const [messages, setMessages] = useState([]);
-// //     const { name } = route.params;
-// //     console.log(route.params,'route.params')
-// //     console.log(name)
-// //     return(
-// //         <GiftedChat
-// //             messages={messages}
-// //         />
-// //     )
-// // }
-// //
-// // const styles = StyleSheet.create({
-// //     container: {
-// //         backgroundColor: 'red'
-// //     }
-// // });
-//
 // import React, { useState, useCallback, useEffect } from 'react'
 // import { GiftedChat } from 'react-native-gifted-chat'
 // import Fire from "../Fire";

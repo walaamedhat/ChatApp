@@ -20,7 +20,7 @@ export default function Login({ navigation, route }) {
         <View
             style={{ flex: 1, backgroundColor: '#29374a', justifyContent: 'center', padding:20}}
         >
-            <StatusBar barStyle="light-content" />
+            {/*<StatusBar barStyle="light-content" />*/}
             <View style={{justifyContent: 'space-around', height: heightPercentageToDP(40)}}>
                 <Image
                     source={require('../assets/icon-chat.png')}
